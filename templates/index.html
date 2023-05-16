@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Онлайн магазин</title>
+{% endblock %}
+
+{% block body %}
+<h1>Онлайн магазин</h1>
+   <main>
+   <div class="card-deck mb-3 text-center">
+       {% for el in data %}
+       <div class="row row-cols-1 row-cols-md-3 nb-3 text-center">
+           <div class="col">
+               <div class="card mb-4 rounded-3 shadow-sm">
+                   <h4 class="my-0 fw-normal">{{ el.title }}</h4>
+               </div>
+               <div class="card-body">
+                   <h1 class="card-title pricing-cars-title">{{ el.price }}<small class="text-muted fw-light"> рублей</small></h1>
+                   <ul class="list-unstyled mt-3 mb-4">
+                       <li>Всегда свежие</li>
+                       <li>Всегда лучшие цены</li>
+                       <li>Возможен безналичный расчет</li>
+                       <li>Возможна доставка по Бресту</li>
+                   </ul>
+                   <a href="/buy/{{ el.id }}" class="w-100 btn btn-lg btn-outline-primary">Купить товар</a>
+               </div>
+           </div>
+       </div>
+       {% endfor %}
+   </div>
+   </main>
+{% endblock %}
